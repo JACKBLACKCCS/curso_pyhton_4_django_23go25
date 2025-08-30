@@ -29,7 +29,14 @@ def testing(request):
     'fruits': ['Apple', 'Banana', 'Cherry'],
     'firstname': 'Linus',  
     'mymembers': mymembers, 
-    'greeting': 0, 
+    'greeting': 1, 
+    'x': ['Apple', 'Banana', 'Cherry'], 
+    'y': ['Apple', 'Banana', 'Cherry'], 
+    'cars': [{"brand": "Ford", "model": "Mustang", "year": 2022}, 
+            {"brand": "Toyota", "model": "Corolla", "year": 2000},{"brand":"Banana", "model": "Apple", "year": 2015}]
+
+  
+
 
   }
   return HttpResponse(template.render(context, request))
