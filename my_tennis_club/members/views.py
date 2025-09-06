@@ -23,20 +23,20 @@ def main(request):
   return HttpResponse(template.render())
 
 def testing(request):
+  mydata = Member.objects.all()
+  mydata2 = Member.objects.values_list('firstname')
   mymembers = Member.objects.all().values()
   template = loader.get_template('template.html')
   context = {
     'fruits': ['Apple', 'Banana', 'Cherry'],
-    'firstname': 'Linus',  
+    'firstname': 'Linus', 
     'mymembers': mymembers, 
+    'mymembers2': mydata,
+    'mymembers3': mydata2, 
     'greeting': 1, 
     'x': ['Apple', 'Banana', 'Cherry'], 
     'y': ['Apple', 'Banana', 'Cherry'], 
     'cars': [{"brand": "Ford", "model": "Mustang", "year": 2022}, 
             {"brand": "Toyota", "model": "Corolla", "year": 2000},{"brand":"Banana", "model": "Apple", "year": 2015}]
-
-  
-
-
-  }
+}
   return HttpResponse(template.render(context, request))
